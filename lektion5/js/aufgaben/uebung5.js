@@ -9,6 +9,9 @@ function aufgabe1() {
   console.debug("Aufgabe 1 ==========================");
 
   //ToDo: füge ab hier Deinen Code ein
+  for(let i = 1; i<5; i++) {
+    console.debug("Durchlauf Nummer: " + i)
+  }
 }
 
 /**
