@@ -50,7 +50,8 @@ function aufgabe3() {
 function aufgabe4() {
   console.debug("Aufgabe 4 ==========================");
 
-  let tag = 5;
+  let tag = 5
+
 
   //ToDo: füge ab hier Deinen Code ein
   switch (tag) {
@@ -78,6 +79,7 @@ function aufgabe4() {
     default:
       console.debug("Die Woche hat genau 7 Tage")
   }
+  console.debug(tag)
 }
 
 /**
