@@ -19,7 +19,7 @@ let gruppenIndex = gruppenListe.indexOf(gruppenName)
             return gruppenListe[gruppenIndex]
         }
         else {
-        console.debug("Gruppe " + "''" +  gruppenName + "''" + " nicht gefunden")
+        console.debug("Gruppe " +  gruppenName + " nicht gefunden")
             return null
         }
     }
@@ -61,13 +61,6 @@ function gruppeEntfernen(gruppenName) {
     }
 }
 
-function main() {
-    gruppeFinden()
-    gruppeHinzufuegen()
-    gruppeUmbenennen()
-    gruppeEntfernen
-}
-main()
 export {
   gruppenListe, aktiveGruppe,
     gruppeFinden, gruppeHinzufuegen, gruppeUmbenennen, gruppeEntfernen
