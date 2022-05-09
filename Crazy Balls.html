@@ -43,9 +43,25 @@
             this.color = color;
             this.size = size;
         }
-    }
+        collisionDetect() {
+            for (const ball of balls) {
+                if (!(this === ball)) {
+                    const dx = this.x - ball.x;
+                    const dy = this.y - ball.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
 
-    var x = Math.floor(Math.random() * innerWidth);
+                    if (distance < this.size + ball.size) {
+                        this.velX = -(this.velX)
+                        this.velY = -(this.velY)
+                        ball.velX = -(ball.velX)
+                    }
+                }
+            }
+        }
+
+
+
+        var x = Math.floor(Math.random() * innerWidth);
     var y = Math.floor(Math.random() * innerHeight);
     var vx = Math.floor(Math.random() * 2);
     var vy = Math.floor(Math.random() * 4);
@@ -55,36 +71,35 @@
 
     // This function will do the animation
     function move() {
-        requestAnimationFrame(move);
+            requestAnimationFrame(move);
 
-        // It clears the specified pixels within
-        // the given rectangle
-        l.clearRect(0, 0, innerWidth, innerHeight);
+            // It clears the specified pixels within
+            // the given rectangle
+            ctx.clearRect(0, 0, innerWidth, innerHeight);
 
-        // Creating a circle
-        l.beginPath();
-        l.strokeStyle = "black";
-        l.arc(x, y, radius, 0, Math.PI * 2, false);
-        l.stroke();
+            // Creating a circle
+            ctx.beginPath();
+            ctx.strokeStyle = "black";
+            ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+            ctx.stroke();
 
-        // Conditions so that the ball bounces
-        // from the edges
-        if (radius + x > innerWidth)
-            vx = 0 - vx;
 
-        if (x - radius < 0)
-            vx = 0 - vx;
+            if (radius + x > innerWidth)
+                vx = 0 - vx;
 
-        if (y + radius > innerHeight)
-            vy = 0 - vy;
+            if (x - radius < 0)
+                vx = 0 - vx;
 
-        if (y - radius < 0)
-            vy = 0 - vy;
+            if (y + radius > innerHeight)
+                vy = 0 - vy;
 
-        x = x + vx;
-        y = y + vy;
+            if (y - radius < 0)
+                vy = 0 - vy;
 
+            x = x + vx;
+            y = y + vy;
     }
+
 </script>
 
 <center>

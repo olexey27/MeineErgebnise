@@ -16,6 +16,7 @@ function teste_gruppeFinden() {
 
     let gruppe3 = gruppeFinden("Getränke")
     console.debug("gruppe3: " + gruppe3)
+
 }
 
 /**
