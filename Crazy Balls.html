@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        Bouncing Ball!!
+    </title>
+    <style>
+        h1 {
+            color: green;
+        }
+
+        canvas {
+            background-color: #000;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+<canvas></canvas>
+
+<script>
+    const canvas = document.querySelector("canvas");
+    const ctx = canvas.getContext(`2d`);
+
+    const width = canvas.width = window.innerWidth;
+    const height = canvas.height = window.innerHeight;
+
+    function random(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    function randomRGB() {
+        return `rgb(${random(0, 255)},${random(0, 255)},${random(0, 255)})`;
+    }
+    class Ball {
+        constructor(x, y, velX, velY, color, size) {
+            this.x = x;
+            this.y = y;
+            this.velX = velX;
+            this.velY = velY;
+            this.color = color;
+            this.size = size;
+        }
+    }
+
+    var x = Math.floor(Math.random() * innerWidth);
+    var y = Math.floor(Math.random() * innerHeight);
+    var vx = Math.floor(Math.random() * 2);
+    var vy = Math.floor(Math.random() * 4);
+    var radius = 20;
+
+    move();
+
+    // This function will do the animation
+    function move() {
+        requestAnimationFrame(move);
+
+        // It clears the specified pixels within
+        // the given rectangle
+        l.clearRect(0, 0, innerWidth, innerHeight);
+
+        // Creating a circle
+        l.beginPath();
+        l.strokeStyle = "black";
+        l.arc(x, y, radius, 0, Math.PI * 2, false);
+        l.stroke();
+
+        // Conditions so that the ball bounces
+        // from the edges
+        if (radius + x > innerWidth)
+            vx = 0 - vx;
+
+        if (x - radius < 0)
+            vx = 0 - vx;
+
+        if (y + radius > innerHeight)
+            vy = 0 - vy;
+
+        if (y - radius < 0)
+            vy = 0 - vy;
+
+        x = x + vx;
+        y = y + vy;
+
+    }
+</script>
+
+<center>
+    <h1>GeeksforGeeks</h1>
+    <h3>Bouncing ball using JavaScript</h3>
+    <canvas>
+    </canvas>
+</center>
+</body>
+</html>
+
