@@ -83,7 +83,13 @@ function main() {
     gruppe.artikelHinzufuegen("artikel2")
     console.debug(gruppe.artikelListe)
     gruppe.artikelFinden("artikel")
-    gruppe.artikelFinden("xxx", true)
+    gruppe.artikelFinden("xxx", false)
+
+    let gruppe2 = new Gruppe("produktGruppe2")
+    gruppe2.artikelHinzufuegen("artikel3")
+    gruppe2.artikelAuflisten(false)
+
+
 
 }
 
