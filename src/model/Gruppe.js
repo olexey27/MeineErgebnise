@@ -31,13 +31,30 @@ class Gruppe {
     artikelFinden(suchName, meldungAusgeben) {
         // TODO: füge hier Deinen Code ein
 
+        /* MEIN CODE */
+        /* for (let artikel of this.artikelListe) {
+             if (artikel.name == suchName) {
+                 return artikel.index
+             }
+         }
+         if (meldungAusgeben == true) {
+             if(artikel.index == -1) {
+                 console.warn("artikel nicht gefunden ", suchName)
+             }
+             else {
+                 console.warn("artikel gefunden ", suchName)
+             }
+         }
+         return null
+     } */
+
+
         for (let artikel of this.artikelListe) {
             if (artikel.name == suchName) {
                 return artikel
             }
         }
         if (meldungAusgeben) {
-            console.warn("artikel nicht gefunden ", suchName)
         }
         return null
     }
@@ -64,15 +81,32 @@ class Gruppe {
     }
 
     /**
-     *
-     * @param {String} name
+     * Fügt einen Artikel zur ArtikelListe hinzu und gibt diesen als Wert zurück
+     * @param {String} name - Name des neuen Artikels
+     * @returns {Artikel} neuerArtikel - der neu erzeugte Artikel
      */
     artikelEntfernen(name) {
         // TODO: Artikel finden, position ermitteln
-        let position = 0;
-        this.artikelListe.splice(position, 1)
-    }
+        /* MEIN CODE */
+        /*let position = 0
+        for (let i = 0; i < this.artikelListe.length; i++) {
+            if (this.artikelListe[i] == name) {
+                position = this.artikelListe.indexOf(i)
+                this.artikelListe.splice(position, 1)
+            } else {
+                console.debug("Artikel ist nicht vorhanden und kann somit nicht entfernt werden")
+            }
+        }
+    }*/
 
+        let vorhandenerArtikel = this.artikelFinden(name, false)
+        if (!vorhandenerArtikel) {
+            let neuerArtikel = new Artikel(name, this.artikelListe.length)
+            this.artikelListe.push(neuerArtikel)
+            return neuerArtikel
+        } else {
+        }
+    }
 }
 
 function main() {
