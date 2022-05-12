@@ -55,6 +55,7 @@ class Gruppe {
             }
         }
         if (meldungAusgeben) {
+            console.debug("artikel nicht gefunden ", suchName)
         }
         return null
     }
@@ -75,9 +76,16 @@ class Gruppe {
      */
     artikelHinzufuegen(name) {
         // TODO: doppelte Artikel abfangen!
-        let neuerArtikel = new Artikel(name)
-        this.artikelListe.push(neuerArtikel)
-        return neuerArtikel
+
+        let vorhandenerArtikel = this.artikelFinden(name)
+        if (!vorhandenerArtikel) {
+            let neuerArtikel = new Artikel(name)
+            this.artikelListe.push(neuerArtikel)
+            return neuerArtikel
+        }
+        else {
+
+        }
     }
 
     /**
@@ -106,6 +114,14 @@ class Gruppe {
             return neuerArtikel
         } else {
         }
+    }
+    artikelUmbenennen(alterName, neuerName) {
+
+        let vorhandenerArtikel = this.artikelFinden(name, false)
+        if (vorhandenerArtikel) {
+            vorhandenerArtikel.name = neuerName
+        }
+        console.debug("Artikel wurde geändert von", alterName, "zu", neuerName)
     }
 }
 
