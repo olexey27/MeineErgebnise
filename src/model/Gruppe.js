@@ -12,14 +12,16 @@ import artikel from "./Artikel.js";
  */
 class Gruppe {
     static counter = 1
-    id = Gruppe.counter++
+    id
     index
     name
     artikelListe = []
 
-    constructor(name, index) {
+    constructor(name) {
         this.name = name
-        this.index = index
+        this.index = Gruppe.counter
+        Gruppe.counter++
+
     }
 
     /**
@@ -66,6 +68,24 @@ class Gruppe {
     artikelAuflisten(gekauft) {
         // TODO: füge hier Deinen Code ein
 
+        /* MEIN CODE */
+        /*for(let i = 0; i< this.artikelListe.length; i++){
+            if(this.artikelListe[i].gekauft == true){
+                console.debug("Gekauft: " + this.artikelListe[i].name)
+            }
+            if(!(this.artikelListe[i].gekauft == true)){
+                console.debug("Noch zu kaufen: " + this.artikelListe[i].name)
+            }
+        } */
+
+        for (let artikel of this.artikelListe) {
+            if (artikel.name == suchName) {
+                return artikel
+            }
+        }
+        if (meldungAusgeben) {
+        }
+        return null
     }
 
     /**
@@ -112,7 +132,7 @@ class Gruppe {
 function main() {
 
     let zahl = 0
-    let gruppe = new Gruppe("produktGruppe1", 0)
+    let gruppe = new Gruppe("produktGruppe1")
     gruppe.artikelHinzufuegen("artikel")
     gruppe.artikelHinzufuegen("artikel2")
     console.debug(gruppe.artikelListe)
