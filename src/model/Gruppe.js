@@ -12,7 +12,7 @@ import artikel from "./Artikel.js";
  */
 class Gruppe {
     static counter = 1
-    id
+    id = Gruppe.counter = 1
     index
     name
     artikelListe = []
@@ -57,6 +57,7 @@ class Gruppe {
             }
         }
         if (meldungAusgeben) {
+            // App.information(`[${this.name}] Artikel "${name}" nicht gefunden
         }
         return null
     }
@@ -95,9 +96,16 @@ class Gruppe {
      */
     artikelHinzufuegen(name) {
         // TODO: doppelte Artikel abfangen!
-        let neuerArtikel = new Artikel(name)
-        this.artikelListe.push(neuerArtikel)
-        return neuerArtikel
+        let vorhandenerArtikel = this.artikelFinden(name, false)
+        if (!vorhandenerArtikel) {
+            let neuerArtikel = new Artikel(name, this.artikelListe.length)
+            this.artikelListe.push(neuerArtikel)
+            // App.information(`[${this.name}] Artikel "${name}" hinzugefügt´)
+            return neuerArtikel
+        }
+        else {
+            // App.information(`[${this.name}] Artikel "${name}" exestiert schon!`, true)
+        }
     }
 
     /**
