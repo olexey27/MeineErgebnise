@@ -10,18 +10,12 @@ let aktiveGruppe = 3
 // TODO: Füge hier die Funktionen `gruppeFinden`, `gruppeHinzufuegen`, `gruppeUmbenennen` und `gruppeEntfernen` hinzu
 
 function gruppeFinden(gruppenName) {
-
-let gruppenIndex = gruppenListe.indexOf(gruppenName)
-
-    for(let i = 0; i< gruppenListe.length; i++){
-
-        if(gruppenIndex > -1){
-            return gruppenListe[gruppenIndex]
-        }
-        else {
-        console.debug("Gruppe " +  gruppenName + " nicht gefunden")
-            return null
-        }
+    let gefundeneGruppe = gruppenListe.indexOf(gruppenName)
+    if (gefundeneGruppe > -1) {
+        return gruppenListe[gefundeneGruppe]
+    } else {
+        console.warn("Gruppe \"" + gruppenName + "\" nicht gefunden")
+        return null
     }
 }
 function gruppeHinzufuegen(name){
@@ -30,12 +24,11 @@ function gruppeHinzufuegen(name){
         let neueGruppe = name
         gruppenListe.push(neueGruppe)
         aktiveGruppe = neueGruppe
-        console.debug("[App] Gruppe " + neueGruppe + " hinzugefügt")
+        console.debug("[App] Gruppe \"" + neueGruppe + "\" hinzugefügt")
         return neueGruppe
     }
     else {
-        console.warn("Gruppe" + name + " existiert schon")
-        return null
+        console.warn("Gruppe \"" + name + "\" existiert schon!")
     }
 }
 function gruppeUmbenennen(alterName, neuerName) {
@@ -43,10 +36,7 @@ function gruppeUmbenennen(alterName, neuerName) {
     if (vorhandeneGruppe != null) {
         let index = gruppenListe.indexOf(alterName)
         gruppenListe[index] = neuerName
-        console.debug("Gruppe " + alterName + " wurde in " + neuerName + " umbenannt")
-    }
-    else {
-        console.warn("Gruppe " + alterName + " nicht gefunden")
+        console.debug("Gruppe von \"" + alterName + "\" nach \"" + neuerName + "\" umbenannt")
     }
 }
 function gruppeEntfernen(gruppenName) {
@@ -54,10 +44,10 @@ function gruppeEntfernen(gruppenName) {
     if (entferneGruppe != null) {
         let index = gruppenListe.indexOf(gruppenName)
         gruppenListe.splice(index, 1)
-        console.debug("Gruppe " + gruppenName + " wurde entfernt")
+        console.debug("[App] Gruppe \"" + gruppenName + "\" entfernt")
     }
     else {
-        console.warn("Gruppe " + gruppenName + " konnte NICHT entfernt werden")
+        console.warn("Gruppe \"" + gruppenName + "\" konnte NICHT entfernt werden")
     }
 }
 
