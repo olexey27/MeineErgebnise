@@ -1,23 +1,23 @@
-import {aktiveGruppe, gruppeFinden, gruppenListe} from "../lektion6/loesung/loesung6.js";
+import {aktiveGruppe, gruppeFinden, gruppenListe} from "../lektion6/js/lektion6.js";
 
-class App {
+class Shopping {
     gruppenListe = []
-    aktiveGruppe = null
+    aktiveGruppe
     setup
 
-
     gruppeFinden(gruppenName) {
-        let gefundeneGruppe = gruppenListe.indexOf(gruppenName)
+        let gefundeneGruppe = this.gruppenListe.indexOf(gruppenName)
         if (gefundeneGruppe > -1) {
-            return gruppenListe[gefundeneGruppe]
-        } else {
+            return this.gruppenListe[gefundeneGruppe]
+        }
+        else {
             console.warn("Gruppe \"" + gruppenName + "\" nicht gefunden")
             return null
         }
     }
+
     gruppeHinzufuegen(name) {
-        const gleicheGruppen = gruppenListe.indexOf(name)
-        // keine Gruppe mit diesem Namen vorhanden
+        const gleicheGruppen = this.gruppenListe.indexOf(name)
         if (gleicheGruppen == -1) {
             let neueGruppe = name
             this.gruppenListe.push(neueGruppe)
@@ -28,23 +28,28 @@ class App {
             console.warn("Gruppe \"" + name + "\" existiert schon!")
         }
     }
+
     gruppeUmbenennen(alterName, neuerName) {
         let vorhandeneGruppe = gruppeFinden(alterName)
         if (vorhandeneGruppe != null) {
-            let index = gruppenListe.indexOf(alterName)
+            let index = this.gruppenListe.indexOf(alterName)
             this.gruppenListe[index] = neuerName
-            console.debug("Gruppe von \"" + alterName + "\" nach \"" + neuerName + "\" umbenannt")
+            console.debug("Gruppe " + alterName + " wurde in " + neuerName + " umbenannt")
+        } else {
+            console.warn("Gruppe " + alterName + " nicht gefunden")
         }
     }
+
     gruppeEntfernen(gruppenName) {
-        let entfernGruppe = gruppeFinden(gruppenName)
-        if (entfernGruppe != null) {
-            let index = gruppenListe.indexOf(entfernGruppe)
+        let entferneGruppe = gruppeFinden(gruppenName)
+        if (entferneGruppe != null) {
+            let index = this.gruppenListe.indexOf(gruppenName)
             this.gruppenListe.splice(index, 1)
-            console.debug("[App] Gruppe \"" + gruppenName + "\" entfernt")
+            console.debug("Gruppe " + gruppenName + " wurde entfernt")
         } else {
-            console.warn("Gruppe \"" + gruppenName + "\" konnte NICHT entfernt werden")
+            console.warn("Gruppe " + gruppenName + " konnte NICHT entfernt werden")
         }
     }
 }
-export {App}
+
+export {Shopping}

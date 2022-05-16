@@ -1,8 +1,20 @@
 class Artikel {
+    position
+    name
+    gekauft
+    id
     counter = 1
-    constructor(name, position, gekauft, id) {
-        this.id = Artikel.counter++
-    }
-}
 
+    constructor(name, position) {
+        this.name = name
+        this.position = position
+        this.gekauft = false
+        this.id = Artikel.counter++
+
+
+
+    }
+
+}
 export {Artikel}
+

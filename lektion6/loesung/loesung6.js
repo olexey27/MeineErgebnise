@@ -35,7 +35,6 @@ function gruppeFinden(gruppenName) {
  */
 function gruppeHinzufuegen(name) {
     const gleicheGruppen = gruppenListe.indexOf(name)
-    // keine Gruppe mit diesem Namen vorhanden
     if (gleicheGruppen == -1) {
         let neueGruppe = name
         gruppenListe.push(neueGruppe)
