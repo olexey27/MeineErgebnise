@@ -8,11 +8,41 @@ class ShoppingList extends React.Component {
 
   render() {
     return (
-      //füge hier deinen HTML-Code ein
       <div id="container">
-        {/* ToDo: füge hier drunter Deinen HTML-Code ein */}
-        Füge hier Deinen HTML-Code ein<br/>
-        <GruppenTag/>
+          <header>
+              <h1>Einkaufsliste</h1>
+              <input type="text" placeholder="Artikel hinzufügen"/>
+                  <select name="Kategorie">
+                      <option value="O1">Kategorie</option>
+                      <option value="O1">Gemüse</option>
+                      <option value="O2">Obst</option>
+                      <option value="O3">Wurst</option>
+                      <option value="O4">Käse</option>
+                  </select>
+          </header>
+          <hr/>
+              <main>
+                  <section>
+                      <h2>Einkaufen</h2>
+                      <dl>
+                        <GruppenTag/>
+                      </dl>
+                  </section>
+                  <hr/>
+                      <section>
+                          <h2>Erledigt</h2>
+                          <GruppenTag/>
+                      </section>
+              </main>
+              <hr/>
+                  <footer>
+                      <button><span className="material-symbols-outlined">group</span> Gruppen
+                      </button>
+                      <button><span className="material-symbols-outlined">menu</span> Sortieren
+                      </button>
+                      <button><span className="material-symbols-outlined">settings</span> Einstellungen
+                      </button>
+                  </footer>
       </div>
     )
   }

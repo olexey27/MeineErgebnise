@@ -9,9 +9,8 @@ class GruppenTag extends React.Component {
   render() {
     return (
       <React.Fragment>
-        {/* ToDo: füge hier drunter Deinen HTML-Code ein */}
-        Füge hier Deinen GruppenTag-Code ein<br/>
-        <ArtikelTag/>
+          <dt>Obst & Gemüse</dt>
+          <ArtikelTag/>
         <ArtikelTag/>
         <ArtikelTag/>
       </React.Fragment>
