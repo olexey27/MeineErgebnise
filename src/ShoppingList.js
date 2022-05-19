@@ -6,31 +6,35 @@ class ShoppingList extends React.Component {
     super(props)
   }
 
+
+
   render() {
     return (
       <div id="container">
           <header>
-              <h1>Einkaufsliste</h1>
-              <input type="text" placeholder="Artikel hinzufügen"/>
+              <h1>Watch Chain</h1>
+              <input type="text" placeholder="Favoriten hinzufügen"/>
+              <link rel="stylesheet"
+                    href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"/>
                   <select name="Kategorie">
-                      <option value="O1">Kategorie</option>
-                      <option value="O1">Gemüse</option>
-                      <option value="O2">Obst</option>
-                      <option value="O3">Wurst</option>
-                      <option value="O4">Käse</option>
+                      <option value="O1">Neue</option>
+                      <option value="O1">Beliebt</option>
+                      <option value="O2">Alt</option>
+                      <option value="O3">Preis Steigend</option>
+                      <option value="O4">Preis Absteigend</option>
                   </select>
           </header>
           <hr/>
               <main>
                   <section>
-                      <h2>Einkaufen</h2>
+                      <h2>NFT's</h2>
                       <dl>
                         <GruppenTag/>
                       </dl>
                   </section>
                   <hr/>
                       <section>
-                          <h2>Erledigt</h2>
+                          <h2>Hinzugefügten</h2>
                           <GruppenTag/>
                       </section>
               </main>

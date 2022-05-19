@@ -8,7 +8,7 @@ class ArtikelTag extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <dd><input type="checkbox"/>Brokkoli</dd>
+        <dd><input type="checkbox"/>CryptoPunk #1223</dd>
       </React.Fragment>
     )
   }
