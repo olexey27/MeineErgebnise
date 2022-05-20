@@ -7,12 +7,27 @@ class GruppenTag extends React.Component {
   }
 
   render() {
+    const gruppe = this.props.gruppe
+
+    let gruppenHeader = ""
+    if (this.props.gekauft == false) {
+      gruppenHeader = (<dt>
+        <span>{gruppe.name}</span>
+        <i className="material-icons">expand_less</i>
+      </dt>)
+    }
+
+    let artikelArray = []
+    for (const film of gruppe.artikelListe) {
+      if (film.gekauft == this.props.gekauft) {
+        artikelArray.push(<ArtikelTag artikel={film} key={film.id}/>)
+      }
+    }
     return (
       <React.Fragment>
-          <dt>CryptoPunks</dt>
-          <ArtikelTag/>
-        <ArtikelTag/>
-        <ArtikelTag/>
+        {/* ToDo: füge hier drunter Deinen HTML-Code ein */}
+        {gruppenHeader}
+        {artikelArray}
       </React.Fragment>
     )
   }
