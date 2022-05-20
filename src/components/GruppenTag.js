@@ -9,7 +9,7 @@ class GruppenTag extends React.Component {
   render() {
     return (
       <React.Fragment>
-          <dt><span>CryptoPunks</span></dt>
+          <dt>CryptoPunks</dt>
           <ArtikelTag/>
         <ArtikelTag/>
         <ArtikelTag/>
