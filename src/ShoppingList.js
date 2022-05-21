@@ -46,7 +46,7 @@ class ShoppingList extends React.Component {
       <div id="container">
         {/* ToDo: füge hier drunter Deinen HTML-Code ein */}
         <header>
-          <h1>Watchlist</h1>
+          <h1>Watch Chain List</h1>
           <label
             className="mdc-text-field mdc-text-field--filled mdc-text-field--with-trailing-icon mdc-text-field--no-label">
             <span className="mdc-text-field__ripple"></span>

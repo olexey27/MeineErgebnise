@@ -1,6 +1,6 @@
 #root {
     width: 23rem;
-    background-image: url("../img/markt.jpg");
+    background-image: url("../img/Design-Watch Chain.jpeg");
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
@@ -44,6 +44,7 @@ dt {
     display: flex;
     font-weight: 500;
     padding: 3px 5px;
+    border-top-left-radius: 5px;
 }
 dt span {
     width: 100%;

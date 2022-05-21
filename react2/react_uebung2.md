@@ -1,4 +1,4 @@
-![](https://us-central1-progress-markdown.cloudfunctions.net/progress/40)
+<![](https://us-central1-progress-markdown.cloudfunctions.net/progress/40)
 <h1 align="center">React</h1>
 <h3 align="center">Lektion 1: Übungsaufgabe </h3>
 <br>
