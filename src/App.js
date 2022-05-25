@@ -32,8 +32,7 @@ class App extends React.Component {
   }
 
   einkaufenAufZuKlappen() {
-    let neuerZustand = !this.state.einkaufenAufgeklappt
-    this.setState({einkaufenAufgeklappt: neuerZustand})
+    this.setState({einkaufenAufgeklappt: !this.state.einkaufenAufgeklappt})
   }
 
   erledigtAufZuKlappen() {
@@ -42,14 +41,21 @@ class App extends React.Component {
 
   artikelChecken = (artikel) => {
     // ToDo: implementiere diese Methode
-    // artikel.gekauft 'umpolen'
-    // 'aktion' abhängig von 'artikel.gekauft' auf "erledigt" oder "reaktiviert" setzen
-    // App.informieren mit 'aktion'
-    // 'state' aktualisieren
+    artikel.gekauft = !artikel.gekauft
+    const aktion = artikel.gekauft ? "erledigt" : "reaktiviert"
+    Modell.informieren("[App] Artikel \"" + artikel.name + "\" wurde " + aktion)
+    this.setState(this.state)
   }
 
   artikelHinzufuegen() {
     // ToDo: implementiere diese Methode
+    let eingabe = document.getElementById("artikelEingabe")
+    if (eingabe.value.trim().length > 0) {
+      Modell.aktiveGruppe.artikelHinzufuegen(eingabe.value)
+      this.setState(this.state)
+    }
+    eingabe.value = ""
+    eingabe.focus()
   }
 
   setAktiveGruppe(gruppe) {
