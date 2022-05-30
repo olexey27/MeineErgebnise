@@ -49,13 +49,12 @@ class App extends React.Component {
 
   artikelHinzufuegen() {
     // ToDo: implementiere diese Methode
-    let eingabe = document.getElementById("artikelEingabe")
-    if (eingabe.value.trim().length > 0) {
-      Modell.aktiveGruppe.artikelHinzufuegen(eingabe.value)
+    const eingabe = document.getElementById("artikelEingabe")
+    const artikelName = eingabe.value.trim()
+    if (artikelName.length > 0) {
+      Modell.aktiveGruppe.artikelHinzufuegen(artikelName)
       this.setState(this.state)
     }
-    eingabe.value = ""
-    eingabe.focus()
   }
 
   setAktiveGruppe(gruppe) {
