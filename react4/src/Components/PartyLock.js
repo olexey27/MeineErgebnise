@@ -15,7 +15,7 @@ class PartyLock extends React.Component{
              */
             <div>
                 <label>{this.props.locked ? "Party name is locked" : "Party name is not locked"}
-                 <input type={"checkbox"}/>
+                 <input type={"checkbox"} onChange={this.props.handleLock}/>
                 </label>
             </div>
         )
