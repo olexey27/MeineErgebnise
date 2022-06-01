@@ -24,11 +24,14 @@ export function Gruesse(props) {
  */
  export class LoginControl extends React.Component {
   constructor(props) {
-    super(props);
-    this.handleLoginClick = this.handleLoginClick.bind(this);
-    this.handleLogoutClick = this.handleLogoutClick.bind(this);
-    this.state = {isLoggedIn: false};
+      super(props);
+      this.handleLoginClick = this.handleLoginClick.bind(this);
+      this.handleLogoutClick = this.handleLogoutClick.bind(this);
+      this.state = {isLoggedIn: false};
   }
+
+
+
 
   handleLoginClick() {
     this.setState({isLoggedIn: true});
@@ -69,6 +72,12 @@ function Gruesse2(props) {
 
   const isLoggedIn = props.isLoggedIn;
   //ToDo: Schreibe hier deinen Code!
+    if (isLoggedIn) {
+        return <NutzerGruss2/>
+    }
+    else {
+        return <GastGruss2/>
+    }
 
 }
 
@@ -99,15 +108,20 @@ export default LoginControl
  */
 export function Mailbox(props) {
   const ungeleseneNachrichten = props.ungeleseneNachrichten;
+  let nachrichten = []
+    for (const nachricht of ungeleseneNachrichten) {
+        nachrichten.push(<div>{nachricht} </div>)
+    }
   return (
       <div>
 
         <h1>Willkommen zu deiner Mailbox!</h1>
-        {//ToDo: Hier die Bedingung und den Operator einfügen
+        //ToDo: Hier die Bedingung und den Operator einfügen
             <h2>
               Du hast {ungeleseneNachrichten.length} ungelesene Nachrichten.
             </h2>
-        }
+        {nachrichten}
+
       </div>
   );
 }
